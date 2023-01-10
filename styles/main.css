@@ -1,0 +1,21 @@
+.update {
+  background: #f6d518;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  width: max-content;
+  border-radius: 6px;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.update:hover {
+  background: #f7d82b;
+  box-shadow: 3px 3px 3px rgba(213, 228, 78, 0.215);
+  transform: scale3d(1.04, 1.04, 1.04);
+}
