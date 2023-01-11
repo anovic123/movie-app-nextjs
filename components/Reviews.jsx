@@ -59,7 +59,7 @@ export const Reviews = ({ id }) => {
           </div>
         </div>
       ) : (
-        'No reviews yet.'
+        <div className={styles.results}>No reviews yet.</div>
       )}
     </div>
   );
@@ -67,18 +67,44 @@ export const Reviews = ({ id }) => {
 
 const Text = ({ text }) => {
   const isFull = text.length < 300;
-  const fullText = !isFull ? `${text.slice(0, 300)}` : text;
+  const fullText = !isFull ? `${text.slice(0, 300)}...` : text;
+  const [isOpen, setOpen] = React.useState(false);
+
+  const handleClick = () => setOpen(!isOpen);
 
   return (
     <>
       <div className={styles.text}>
         {fullText}
-        {isFull && (
+
+        {!isFull && (
           <div className={styles.more} onClick={handleClick}>
             Read more...
           </div>
         )}
       </div>
+
+      {isOpen && (
+        <>
+          <div className={styles.modal}>
+            <span
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              x
+            </span>
+            <p>{text}</p>
+          </div>
+
+          <div
+            onClick={() => {
+              setOpen(false);
+            }}
+            className={styles.overlay}
+          />
+        </>
+      )}
     </>
   );
 };
