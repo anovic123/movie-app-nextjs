@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { MovieItem } from '../components';
+import { GetButton, MovieItem } from '../components';
 import { BASE_URL } from '../utils/constants';
 
 export default function Movie({ movie }) {
   return (
     <>
+      <GetButton />
       <MovieItem {...movie} />
     </>
   );

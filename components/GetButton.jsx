@@ -3,18 +3,25 @@ import Image from 'next/image';
 import { useAppStore } from '../store/store';
 import { useRouter } from 'next/router';
 import { BASE_URL } from '../utils/constants';
-import { getIdFromKey } from '../utils/common';
+import { getIdFromKey, getRandom } from '../utils/common';
 
 import update from '../images/refresh.png';
 
 export const GetButton = ({ text = 'Get a movie', cn = '' }) => {
   const router = useRouter();
   const { items } = useAppStore();
+  const { id } = router.query;
 
   const getMovie = () => {
     if (!items.length) return;
 
-    router.push(`${BASE_URL}/${getIdFromKey(items[0])}`);
+    const filtered = items.filter((item) => getIdFromKey(item) !== id);
+
+    if (filtered.length) {
+      const random = getRandom(filtered.length);
+      const newId = getIdFromKey(filtered[random]);
+      router.push(`${BASE_URL}/${newId}`);
+    }
   };
 
   return (

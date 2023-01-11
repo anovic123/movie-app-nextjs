@@ -7,24 +7,26 @@ import styles from '../styles/Reviews.module.css';
 
 export const Reviews = ({ id }) => {
   const [reviews, setReviews] = React.useState([]);
+  const [isPending, setPending] = React.useState(false);
 
   React.useEffect(() => {
     const fetchReviews = async () => {
+      setPending(true);
       const { data } = await axios.get(`${BASE_URL}/api/reviews?id=${getIdFromKey(id)}`);
 
       setReviews(data.reviews);
+      setPending(false);
     };
 
     fetchReviews();
   }, [id]);
 
-  if (!reviews.length) return 'loading...';
-
   return (
     <div className={styles.list}>
       <h2>Reviews</h2>
-
-      {reviews?.length ? (
+      {isPending ? (
+        'Loading...'
+      ) : reviews?.length ? (
         <div className={styles.container}>
           <div className={styles.reviews}>
             {reviews.map(
