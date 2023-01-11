@@ -1,4 +1,5 @@
 import axios from 'axios';
+import NextNProgress from 'nextjs-progressbar';
 import { BASE_URL } from '../utils/constants';
 import { Footer } from '../components';
 
@@ -9,18 +10,20 @@ import { useAppStore } from '../store/store';
 import { useEffect } from 'react';
 
 function App({ Component, pageProps }) {
-  const {setItems, items} = useAppStore();
+  const { setItems, items } = useAppStore();
 
   useEffect(() => {
-    if(!items.length) {
-      setItems(pageProps.data)
+    if (!items.length) {
+      setItems(pageProps.data);
     }
-  }, [pageProps.data, setItems, items])
+  }, [pageProps.data, setItems, items]);
 
   return (
     <div className={styles.container}>
-      <Component {...pageProps} />
-
+      <NextNProgress />
+      <main className={styles.main}>
+        <Component {...pageProps} />
+      </main>
       <Footer />
     </div>
   );
