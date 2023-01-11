@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   try {
     const { id } = req.query;
     const { data } = await request({
-      url: `title/get-overview-details`,
+      url: `title/get-full-credits`,
       params: {
         tconst: id,
       },
@@ -13,6 +13,6 @@ export default async function handler(req, res) {
     if (data) res.status(200).json(data);
   } catch (err) {
     console.log(err);
-    res.status(500).json(`Error during fetching movie`);
+    res.status(500).json(`Error during fetching movie cast`);
   }
 }

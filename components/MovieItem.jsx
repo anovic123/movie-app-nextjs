@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { convertDuration } from '../utils/common';
+import { Reviews, Cast } from './';
 
 import movieImg from '../images/default-movie.jpg';
 import styles from '../styles/Movie.module.css';
@@ -54,6 +55,13 @@ export const MovieItem = ({
           </div>
         </div>
       </div>
+
+      {isOpen && (
+        <>
+          <Cast id={id} />
+          <Reviews id={id} />
+        </>
+      )}
 
       <div className={styles.more} onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? 'Hide info' : 'View more info'}

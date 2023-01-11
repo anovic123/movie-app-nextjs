@@ -1,0 +1,39 @@
+.list {
+  display: flex;
+  column-gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cast {
+  margin-top: 50px;
+}
+
+.item {
+  width: calc(100% / 7 - 10px);
+  text-align: center;
+}
+
+.image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin: 10px auto;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.character {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 12px;
+  color: #838383;
+  font-weight: 500;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
