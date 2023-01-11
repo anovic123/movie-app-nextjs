@@ -17,5 +17,5 @@
 .update:hover {
   background: #f7d82b;
   box-shadow: 3px 3px 3px rgba(213, 228, 78, 0.215);
-  transform: scale3d(1.04, 1.04, 1.04);
+  transform: scale3d(1.01, 1.01, 1.01);
 }

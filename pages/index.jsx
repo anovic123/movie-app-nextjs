@@ -3,6 +3,7 @@ import { Inter } from '@next/font/google';
 import update from '../images/refresh.png';
 
 import styles from '../styles/Index.module.css';
+import { GetButton } from '../components';
 
 export default function Home() {
   return (
@@ -13,10 +14,7 @@ export default function Home() {
         The best movie of the Galaxy to help you find a movie tonight.
       </div>
 
-      <div className={`update ${styles.update}`}>
-        <Image className="icon" src={update} alt="" width={14} height={14} />
-        <span>Get a movie</span>
-      </div>
+      <GetButton cn={styles.update} />
     </div>
   );
 }
