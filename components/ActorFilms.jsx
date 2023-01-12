@@ -1,12 +1,12 @@
-import axios from 'axios';
 import React from 'react';
+import axios from 'axios';
+import Link from 'next/link';
 
 import { getIdFromKey } from '../utils/common';
 import { BASE_URL } from '../utils/constants';
 import { Preloader } from './';
 
 import styles from '../styles/Film.module.css';
-import Link from 'next/link';
 
 export const ActorFilms = ({ id }) => {
   const [films, setFilms] = React.useState([]);
@@ -36,23 +36,25 @@ export const ActorFilms = ({ id }) => {
         {isLoading ? (
           <Preloader />
         ) : (
-          films.map(({ characters, id, image, title, year }) => {
-            <Link href={`${BASE_URL}/${getIdFromKey(id)}`} key={id}>
+          films.map(({ characters, id, image, title, year }) => (
+            <Link href={`${BASE_URL}/${getIdFromKey(id)}`} key={id} legacyBehavior>
               <a className={styles.item}>
                 <div className={styles.image} style={{ backgroundImage: `url(${image.url})` }} />
+
                 <div className={styles.info}>
                   <div className={styles.title}>{title}</div>
 
                   {characters?.length && (
                     <div className={styles.character}>
-                      <span>{characters[0]}</span>
+                      <span>as </span> {characters[0]}
                     </div>
                   )}
+
                   <div className={styles.year}>{year}</div>
                 </div>
               </a>
-            </Link>;
-          })
+            </Link>
+          ))
         )}
       </div>
     </div>

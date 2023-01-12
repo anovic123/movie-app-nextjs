@@ -1,13 +1,14 @@
 import axios from 'axios';
+import { useEffect } from 'react';
+import Head from 'next/head';
 import NextNProgress from 'nextjs-progressbar';
 import { BASE_URL } from '../utils/constants';
 import { Footer } from '../components';
+import { useAppStore } from '../store/store';
 
 import '../styles/main.css';
 import '../styles/globals.css';
 import styles from '../styles/Home.module.css';
-import { useAppStore } from '../store/store';
-import { useEffect } from 'react';
 
 function App({ Component, pageProps }) {
   const { setItems, items } = useAppStore();
@@ -20,6 +21,10 @@ function App({ Component, pageProps }) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>The best movie APP</title>
+        <meta name="description" content="Movie app" />
+      </Head>
       <NextNProgress />
       <main className={styles.main}>
         <Component {...pageProps} />
