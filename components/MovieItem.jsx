@@ -55,8 +55,8 @@ export const MovieItem = ({
           <Image
             src={image ? image.url : movieImg}
             alt={title}
-            width={image ? image.width : '300'}
-            height={image ? image.height : '300'}
+            width={'600'}
+            height={'600'}
             quality="0.5"
           />
         </div>

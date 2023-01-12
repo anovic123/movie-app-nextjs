@@ -6,6 +6,7 @@ import { BASE_URL } from '../utils/constants';
 import { getIdFromKey, getRandom } from '../utils/common';
 
 import update from '../images/refresh.png';
+import { Search } from './Search';
 
 export const GetButton = ({ text = 'Get a movie', cn = '' }) => {
   const router = useRouter();
@@ -28,9 +29,13 @@ export const GetButton = ({ text = 'Get a movie', cn = '' }) => {
   };
 
   return (
-    <div className={`update ${cn} ${isLoading ? "disabled" : ''}`} onClick={getMovie}>
-      <Image className="icon" src={update} width={14} height={14} alt="" />
-      <span>{text}</span>
+    <div className="actions">
+      <div className={`update ${cn} ${isLoading ? 'disabled' : ''}`} onClick={getMovie}>
+        <Image className="icon" src={update} width={14} height={14} alt="" />
+        <span>{text}</span>
+      </div>
+
+      {router.pathname !== '/' &&  <Search />}
     </div>
   );
 };
