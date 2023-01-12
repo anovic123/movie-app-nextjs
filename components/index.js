@@ -6,3 +6,4 @@ export * from './Reviews';
 export * from './Search';
 export * from './ActorItem';
 export * from './ActorFilms';
+export * from './Preloader';

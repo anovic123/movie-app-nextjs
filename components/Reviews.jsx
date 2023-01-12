@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../utils/constants';
 import { getIdFromKey } from '../utils/common';
+import { Preloader } from './';
 
 import styles from '../styles/Reviews.module.css';
 
@@ -25,7 +26,7 @@ export const Reviews = ({ id }) => {
     <div className={styles.list}>
       <h2>Reviews</h2>
       {isPending ? (
-        'Loading...'
+        <Preloader />
       ) : reviews?.length ? (
         <div className={styles.container}>
           <div className={styles.reviews}>

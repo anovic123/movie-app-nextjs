@@ -3,6 +3,7 @@ import React from 'react';
 
 import { getIdFromKey } from '../utils/common';
 import { BASE_URL } from '../utils/constants';
+import { Preloader } from './';
 
 import styles from '../styles/Film.module.css';
 import Link from 'next/link';
@@ -32,25 +33,27 @@ export const ActorFilms = ({ id }) => {
       <h2>Filmography</h2>
 
       <div className={styles.list}>
-        {isLoading
-          ? 'Loading...'
-          : films.map(({ characters, id, image, title, year }) => {
-              <Link href={`${BASE_URL}/${getIdFromKey(id)}`} key={id}>
-                <a className={styles.item}>
-                  <div className={styles.image} style={{ backgroundImage: `url(${image.url})` }} />
-                  <div className={styles.info}>
-                    <div className={styles.title}>{title}</div>
+        {isLoading ? (
+          <Preloader />
+        ) : (
+          films.map(({ characters, id, image, title, year }) => {
+            <Link href={`${BASE_URL}/${getIdFromKey(id)}`} key={id}>
+              <a className={styles.item}>
+                <div className={styles.image} style={{ backgroundImage: `url(${image.url})` }} />
+                <div className={styles.info}>
+                  <div className={styles.title}>{title}</div>
 
-                    {characters?.length && (
-                      <div className={styles.character}>
-                        <span>{characters[0]}</span>
-                      </div>
-                    )}
-                    <div className={styles.year}>{year}</div>
-                  </div>
-                </a>
-              </Link>;
-            })}
+                  {characters?.length && (
+                    <div className={styles.character}>
+                      <span>{characters[0]}</span>
+                    </div>
+                  )}
+                  <div className={styles.year}>{year}</div>
+                </div>
+              </a>
+            </Link>;
+          })
+        )}
       </div>
     </div>
   );

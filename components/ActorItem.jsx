@@ -29,7 +29,9 @@ export const ActorItem = ({
 
           <div className={styles.content}>
             <div className={styles.dates}>
-              <div className={styles.birthDate}>{new Date(birthDate).getFullYear()}</div>
+              <div className={styles.birthDate}>
+                {birthDate && new Date(birthDate).getFullYear()}
+              </div>
               <div className={styles.place}>{birthPlace}</div>
             </div>
 

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import { BASE_URL } from '../utils/constants';
 import { getIdFromKey } from '../utils/common';
+import { Preloader } from './';
 
 import styles from '../styles/Cast.module.css';
 
@@ -26,7 +27,7 @@ export const Cast = ({ id }) => {
     <div className={styles.cast}>
       <h2 className={styles.heading}>Cast</h2>
       {isPending ? (
-        'Loading...'
+        <Preloader />
       ) : (
         <div className={styles.list}>
           {cast.map(({ characters, id, image, name }) => (
