@@ -4,3 +4,5 @@ export * from './MovieItem';
 export * from './Cast';
 export * from './Reviews';
 export * from './Search';
+export * from './ActorItem';
+export * from './ActorFilms';
