@@ -14,8 +14,27 @@
   transition: all 0.3s ease-in-out;
 }
 
+.update.disabled {
+  cursor: not-allowed;
+  background: #c8c8c8;
+}
+
+.update.disabled .icon {
+  animation: rotating 0.5s infinite linear;
+}
+
 .update:hover {
   background: #f7d82b;
   box-shadow: 3px 3px 3px rgba(213, 228, 78, 0.215);
   transform: scale3d(1.01, 1.01, 1.01);
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
 }

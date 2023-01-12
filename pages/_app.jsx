@@ -13,7 +13,7 @@ function App({ Component, pageProps }) {
   const { setItems, items } = useAppStore();
 
   useEffect(() => {
-    if (!items.length) {
+    if (!items?.length) {
       setItems(pageProps.data);
     }
   }, [pageProps.data, setItems, items]);
