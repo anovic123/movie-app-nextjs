@@ -36,7 +36,7 @@ export const MovieItem = ({
 
     router.push(`${BASE_URL}/${id}`).then(() => setLoading(false));
 
-    setItems(data);
+    setItems({data});
   };
 
   return (
